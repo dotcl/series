@@ -129,7 +129,7 @@
     (rename-package "LISP" "COMMON-LISP" '("LISP" "CL"))))
 
 ;;; Note this is really too early, but we need it here
-#+(or draft-ansi-cl draft-ansi-cl-2 ansi-cl allegro cmu scl sbcl Genera Harlequin-Common-Lisp CLISP mcl ccl)
+#+(or draft-ansi-cl draft-ansi-cl-2 ansi-cl allegro cmu scl sbcl Genera Harlequin-Common-Lisp CLISP mcl ccl dotcl)
 (cl:eval-when (load eval compile)
   (cl:pushnew ':series-ansi cl:*features*))
 
@@ -202,6 +202,8 @@
   (:import-from "SB-CLTL2" "COMPILER-LET")
   #+ecl
   (:import-from "SI" "COMPILER-LET")
+  #+dotcl
+  (:import-from "DOTCL-CLTL2" "COMPILER-LET")
 )
 
 #-(or series-ansi)

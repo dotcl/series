@@ -3811,7 +3811,7 @@ value, the old value is not clobbered."
 (defstruct (generator (:conc-name nil) (:type list))
   gen-state gen-base (current-alter-info nil))
 
-#+(or :lispworks :cmu :scl :excl :sbcl :ccl)
+#+(or :lispworks :cmu :scl :excl :sbcl :ccl :dotcl)
 (deftype generator () 'cons)
 
 (cl:defun generator (s)
